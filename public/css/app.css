@@ -1,0 +1,7 @@
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:white;
+}
+
+[placeholder]:focus::-webkit-input-placeholder {
+    color: transparent;
+}

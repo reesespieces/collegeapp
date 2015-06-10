@@ -1,0 +1,37 @@
+<link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.95.1/css/materialize.css"  media="screen,projection"/>
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.95.1/js/materialize.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./css/app.css" />
+
+<div class="container" style="padding-top:5%;">
+  <nav style="background-color: #b2ebf2;">
+    <div class="nav-wrapper" style="padding-left:1%;">
+      <form method="get" action="/submit">
+        <div class="input-field">
+          <input name="userInput" type="search" placeholder="Search for colleges or universities..." title="search" required>
+          <label for="search"><i class="mdi-action-search"></i></label>
+        </div>
+      </form>
+    </div>
+  </nav>
+</div>
+
+<div class="flow-text">
+  <div style="padding-top:2%;padding-left:1%;">
+    <% @colleges.each do |x|%>
+        <%= x[:name] %> <a id="btn" class="btn-floating btn-flat btn-small waves-effect waves-light transparent" onclick="myFunction()"><i class="mdi-action-favorite-outline" style="color:red"></i></a>
+        <ul>
+          <li>Address: <%= x[:address] %> <%= x[:city] %>, <%= x[:state]%></li>
+          <li>Phone: <%= x[:phone] %></li>
+          <li>Website: <a href="http://<%= x[:website]%>"><%= x[:website]%></a></li>
+        </ul>
+        <!--
+        puts x[:zipcode]
+        puts x[:phone]-->
+    <% end %>
+  </div>
+</div>
+
+
+<!-- https://josephndungu.com/tutorials/fast-autocomplete-search-terms-rails -->
